@@ -3,7 +3,7 @@ terraform {
       organization = "signalroom"
 
         workspaces {
-            name = "ccaf-flink-app-tracker"
+            name = "ccaf-statements-tracker-app"
         }
   }
 
