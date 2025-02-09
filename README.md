@@ -1,4 +1,4 @@
-# Confluent Cloud for Apache Flink (CCAF) Tracker
+# Confluent Cloud for Apache Flink (CCAF) Statements Tracker App
 
 **Table of Contents**
 
