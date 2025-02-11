@@ -1,7 +1,7 @@
 [project]
-name = "ccaf-flink-app-tracker"
+name = "ccaf-housekeeping-app"
 version = "0.01.00.000"
-description = "CCAF Statements Tracker App"
+description = "CCAF Housekeeping App"
 readme = "README.md"
 requires-python = ">=3.11.9"
 authors = [
@@ -10,7 +10,6 @@ authors = [
 dependencies = [
     "boto3>=1.36.16",
     "confluent-flink-table-api-python-plugin>=1.20.50",
-    "confluent-kafka>=2.8.0",
     "pytest>=8.3.4",
     "requests>=2.32.3",
     "setuptools>=65.5.1",
