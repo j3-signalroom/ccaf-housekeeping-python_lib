@@ -1,8 +1,10 @@
-.venv/
-.DS_Store
-**/__pycache__
-scratchpad.md
-.aws-sam/
+# Python-generated files
+__pycache__/
+*.py[oc]
+
+# Virtual environments
+.venv
+
 
 # Local .terraform directories
 **/.terraform/*
