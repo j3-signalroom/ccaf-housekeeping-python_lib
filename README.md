@@ -10,7 +10,8 @@ The CCAF Housekeeping App is a CI/CD support tool that automates the teardown an
         + [**1.1.2 Housekeeping service**](#112-housekeeping-service)
 + [**2.0 Resources**](#20-resources)
     * [**2.1 Architecture Design Records (ADRs)**](#21-architecture-design-records-adrs)
-    * [**2.2 API Documentation**](#22-api-documentation)
+    * [**22.2 Managing Flink SQL Statements**](#22-managing-flink-sql-statements)
+    * [**2.3 Other**](#23-other)
 <!-- tocstop -->
 
 ## 1.0 Architecture
@@ -18,8 +19,7 @@ The CCAF Housekeeping App is a CI/CD support tool that automates the teardown an
 ### 1.1 Overview
 
 #### 1.1.1 Tracker service
-CRUD operations for tracking Flink SQL statements and their associated Kafka resources.
-    * Kafka is the persistent store for tracking Flink SQL statements and their associated Kafka resources.
+CRUD operations for tracking Flink SQL statements and their associated Kafka resources.  Kafka is the persistent store for tracking Flink SQL statements and their associated Kafka resources.
 
 #### 1.1.2 Housekeeping service
 Automates the teardown and buildup of Flink SQL statements and their associated Kafka resources.
@@ -29,11 +29,10 @@ Automates the teardown and buildup of Flink SQL statements and their associated 
 ### 2.1 Architecture Design Records (ADRs)
 * [001 Architectural Design Record (ADR):  CCAF Housekeeping App](.blog/adr_001.md)
 
-### 2.2 API Documentation
-* [Flink SQL REST API for Confluent Cloud for Apache Flink](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/flink-rest-api.html)
-* [Kafka REST APIs for Confluent Cloud](https://docs.confluent.io/cloud/current/kafka-rest/kafka-rest-cc.html)
-* [Confluent Cloud Schema Registry REST API Usage](https://docs.confluent.io/cloud/current/sr/sr-rest-apis.html)
-
-### 2.3 Managing Flink SQL Statements
+### 2.2 Managing Flink SQL Statements
 * [Monitor and Manage Flink SQL Statements in Confluent Cloud for Apache Flink](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/monitor-statements.html#)
 * [DROP TABLE Statement in Confluent Cloud for Apache Flink](https://docs.confluent.io/cloud/current/flink/reference/statements/drop-table.html#:~:text=Dropping%20a%20table%20permanently%20deletes,will%20transition%20to%20DEGRADED%20status._)
+
+### 2.3 Other
+* [Confluent Cloud Clients Python Library](https://github.com/j3-signalroom/cc-clients-lib)
+
