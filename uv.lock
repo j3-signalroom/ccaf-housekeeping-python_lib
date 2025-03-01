@@ -35,8 +35,8 @@ wheels = [
 
 [[package]]
 name = "cc-clients-python-lib"
-version = "0.7.0.0"
-source = { git = "https://github.com/j3-signalroom/cc-clients-python_lib.git#6cad2d36ae815e236005eaef876e5d1445af8faa" }
+version = "0.8.0.0"
+source = { git = "https://github.com/j3-signalroom/cc-clients-python_lib.git#7fafb0dc7061a8d529f331222080764d38aaa3cb" }
 dependencies = [
     { name = "attrs" },
     { name = "avro" },
