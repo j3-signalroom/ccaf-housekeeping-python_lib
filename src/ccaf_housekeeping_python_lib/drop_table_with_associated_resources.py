@@ -11,11 +11,17 @@ __status__     = "dev"
 
 
 class DropTableWithAssociatedResources():
-    def __init__(self, flink_sql_config: dict):
+    def __init__(self, flink_config: dict):
         # Instantiate the Flinklient classs.
-        self.flink_client = FlinkClient(flink_sql_config)
+        self.flink_client = FlinkClient(flink_config)
 
     def drop_table(self, catalog_name: str, database_name: str, table_name: str):
+        http_status_code, error_message, response = self.flink_client.get_compute_pool_list()
+
+        for item in response.get("data"):
+            logger.info("%s, %d, %d, %s", item.get("id"), item.get("status").get("current_cfu"), item.get("spec").get("max_cfu"), item.get("status").get("phase"))
+        
+
         http_status_code, error_message, response = self.flink_client.get_statement_list()
 
         http_status_code, error_message, response = self.flink_client.submit_statement(f"drop-{table_name}",
