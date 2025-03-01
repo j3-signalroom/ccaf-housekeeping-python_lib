@@ -24,8 +24,8 @@ class DropTableWithAssociatedResources():
             return False, error_message
 
         # Get the statement list.
-        max_cfu = response.get("spec").get("max_cfu")
-        http_status_code, error_message, response = self.flink_client.get_statement_list(max_cfu)
+        page_size = response.get("spec").get("max_cfu")
+        http_status_code, error_message, response = self.flink_client.get_statement_list(page_size)
         if http_status_code != HttpStatus.OK:
             return False, error_message
 
