@@ -20,13 +20,27 @@ logger.setLevel(logging.INFO)
 
 class DropTableWithAssociatedResources():
     def __init__(self, flink_config: dict):
-        # Instantiate the Flink client class.
+        """Initialize the class.
+        
+        Args:
+            flink_config (dict): The Flink configuration.
+        """
         self.flink_client = FlinkClient(flink_config)
 
     def drop_table(self, catalog_name: str, database_name: str, table_name: str) -> Tuple[bool, str]:
-        pattern = r'(?:drop|from|insert)\s+([-.`*\w+\s]+?)\s*(?=\;|\)|\(|values)'
+        """Drop the table and associated resources.
         
-
+        Args:
+            catalog_name (str): The catalog name.
+            database_name (str): The database name.
+            table_name (str): The table name.
+            
+        Returns:
+            Tuple[bool, str]: A tuple containing the success status and error message.
+        """
+        # Regular expression pattern to match the table name in a statement.
+        pattern = r'(?:drop|from|insert)\s+([-.`\w+\s]+?)\s*(?=\;|\)|\(|values)'
+        
         # Get the statement list.
         http_status_code, error_message, response = self.flink_client.get_statement_list()
         if http_status_code != HttpStatus.OK:
@@ -37,7 +51,6 @@ class DropTableWithAssociatedResources():
             phase = item.get("status").get("phase")
             statement_id = item.get("name")
             statement = item.get("spec").get("statement").lower()
-            #statement = "select * from `need-to-have-one-environment`.`cluster_0`.`hello` limit 10;"
             catalog_name = item.get("spec").get("properties").get("sql.current-catalog")
             database_name = item.get("spec").get("properties").get("sql.current-database")
             if phase == "FAILED":
