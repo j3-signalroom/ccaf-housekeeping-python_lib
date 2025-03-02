@@ -56,3 +56,8 @@ def test_drop_table():
     # Instantiate the DropTableWithAssociatedResources class.
     drop_table_class = DropTableWithAssociatedResources(config)
 
+    # Drop the table.
+    table_name = "hello"
+    result, error_message = drop_table_class.drop_table(catalog_name, database_name, table_name)
+    assert result
+
