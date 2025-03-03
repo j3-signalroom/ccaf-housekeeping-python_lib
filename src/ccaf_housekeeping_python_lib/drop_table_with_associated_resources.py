@@ -1,6 +1,5 @@
 from typing import Tuple, Dict
 import re
-import logging
 import uuid
 from cc_clients_python_lib.flink_client import FlinkClient, StatementPhase
 from cc_clients_python_lib.kafka_client import KafkaClient
@@ -14,10 +13,6 @@ __maintainer__ = "Jeffrey Jonathan Jennings (J3)"
 __email__      = "j3@thej3.com"
 __status__     = "dev"
 
-
-# Configure the logger
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
 
 DROP_STAGES = {
     "statement_drop": "statement_drop",
@@ -112,20 +107,15 @@ class DropTableWithAssociatedResources():
                                                                                                {"sql.current-catalog": catalog_name, "sql.current-database": database_name})
                 if http_status_code != HttpStatus.CREATED:
                     return False, error_message, {}
+                elif http_status_code == HttpStatus.CREATED:
+                    drop_stages[DROP_STAGES["kafka_topic_drop"]] = "Kafka topic dropped."
+                    drop_stages[DROP_STAGES["table_drop"]] = "Table dropped."
                 else:
                     retry += 1
                     statement_phase = StatementPhase(item.get("status").get("phase"))
-                    logger.info("Retry %d to %d: Statement phase ---  %s", retry, max_retry, statement_phase)
-
-                    # drop_stages[DROP_STAGES["kafka_topic_drop"]] = "Kafka topic dropped."
-                    # drop_stages[DROP_STAGES["table_drop"]] = "Table dropped."
         else:
             drop_stages[DROP_STAGES["kafka_topic_drop"]] = "Kafka topic does not exist."
             drop_stages[DROP_STAGES["table_drop"]] = "No action was taken since backing Kafka topic does not exist."
         
-        logger.info(f"Drop table response: {response}")
-        logger.info(f"Drop table error message: {error_message}")
-        logger.info(f"Drop table http status code: {http_status_code}")
-
         return True, "", drop_stages
     
