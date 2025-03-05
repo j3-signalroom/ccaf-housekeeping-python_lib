@@ -8,9 +8,10 @@ The CCAF Housekeeping Python Library is a CI/CD support tool designed to automat
 <!-- toc -->
 - [**1.0 Architecture**](#10-architecture)
     * [**1.1 Architecture Design Records (ADRs)**](#11-architecture-design-records-adrs)
-+ [**2.0 Resources**](#20-resources)
-    * [**2.1 Managing Flink SQL Statements**](#21-managing-flink-sql-statements)
-    * [**2.2 Other**](#22-other)
+- [**2.0 Installation**](#20-installation)
++ [**3.0 Resources**](#20-resources)
+    * [**3.1 Managing Flink SQL Statements**](#31-managing-flink-sql-statements)
+    * [**3.2 Other**](#32-other)
 <!-- tocstop -->
 
 ## 1.0 Architecture
@@ -18,12 +19,23 @@ The CCAF Housekeeping Python Library is a CI/CD support tool designed to automat
 ### 1.1 Architecture Design Records (ADRs)
 * [001 Architectural Design Record (ADR):  CCAF Housekeeping Library](https://github.com/j3-signalroom/ccaf-housekeeping-python_lib/blob/main/.blog/adr_001.md)
 
-## 2.0 Resources
+## **2.0 Installation**
+Install the Confluent Cloud for Apache Flink (CCAF) Housekeeping Python Library using **`pip`**:
+```bash
+pip install ccaf-housekeeping-python-lib
+```
 
-### 2.1 Managing Flink SQL Statements
+Or, using [**`uv`**](https://docs.astral.sh/uv/):
+```bash
+uv add ccaf-housekeeping-python-lib
+```
+
+## 3.0 Resources
+
+### 3.1 Managing Flink SQL Statements
 * [Monitor and Manage Flink SQL Statements in Confluent Cloud for Apache Flink](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/monitor-statements.html#)
 * [DROP TABLE Statement in Confluent Cloud for Apache Flink](https://docs.confluent.io/cloud/current/flink/reference/statements/drop-table.html#:~:text=Dropping%20a%20table%20permanently%20deletes,will%20transition%20to%20DEGRADED%20status._)
 
-### 2.2 Other
+### 3.2 Other
 * [Confluent Cloud Clients Python Library](https://github.com/j3-signalroom/cc-clients-python_lib)
 
