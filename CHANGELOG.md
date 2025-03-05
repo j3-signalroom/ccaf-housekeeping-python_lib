@@ -6,6 +6,7 @@ The format is base on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), 
 ## [0.01.03.000] - 2025-03-05
 ### Changed
 - Issue [#45](https://github.com/j3-signalroom/ccaf-housekeeping-python_lib/issues/45)
+- Issue [#46](https://github.com/j3-signalroom/ccaf-housekeeping-python_lib/issues/46)
 
 ## [0.01.02.000] - 2025-03-04
 ### Changed
