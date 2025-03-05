@@ -35,8 +35,8 @@ wheels = [
 
 [[package]]
 name = "cc-clients-python-lib"
-version = "0.10.1.0"
-source = { git = "https://github.com/j3-signalroom/cc-clients-python_lib.git#8e546508251ca094de3652c22bb5bd8cc8c8ad4f" }
+version = "0.11.1.0"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "attrs" },
     { name = "avro" },
@@ -49,10 +49,14 @@ dependencies = [
     { name = "urllib3" },
     { name = "wheel" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/5a/1a/a117406d292ebb93b0e68b757ffa223bae7ef882d6e2aa1ed483a9424583/cc_clients_python_lib-0.11.1.0.tar.gz", hash = "sha256:14e2684fd7048b59f2fef18a735034034c755f8af0a45cd0dd0acb6503f8b320", size = 20647 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/bf/88/3c21386073cd3043c19969a62a332ff326c6e7df9264e1571cf1d1c08bc2/cc_clients_python_lib-0.11.1.0-py3-none-any.whl", hash = "sha256:530e76addc98d0ad878f4a6c2bb008cff1d4bc29d4efdba9a607ef58ebafcbe8", size = 10051 },
+]
 
 [[package]]
 name = "ccaf-housekeeping-python-lib"
-version = "0.1.0.0"
+version = "0.1.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "cc-clients-python-lib" },
@@ -61,7 +65,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "cc-clients-python-lib", git = "https://github.com/j3-signalroom/cc-clients-python_lib.git" },
+    { name = "cc-clients-python-lib", specifier = ">=0.11.1.0" },
     { name = "pytest", specifier = ">=8.3.4" },
 ]
 
