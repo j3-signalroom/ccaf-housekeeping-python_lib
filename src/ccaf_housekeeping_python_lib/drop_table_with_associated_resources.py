@@ -1,3 +1,4 @@
+import time
 from typing import Tuple, Dict
 import re
 import uuid
@@ -21,6 +22,9 @@ DROP_STAGES = {
     "kafka_topic_drop": "kafka_topic_drop",
     "table_drop": "table_drop"
 }
+
+MAX_RETRY = 3
+
 
 class DropTableWithAssociatedResources():
     def __init__(self, flink_config: dict, kafka_config: dict):
@@ -100,7 +104,7 @@ class DropTableWithAssociatedResources():
         
         if exist:
             retry = 0
-            max_retry = 3
+            max_retry = MAX_RETRY
             while retry <= max_retry:
                 http_status_code, error_message, response = self.flink_client.submit_statement(f"drop-{table_name}-{str(uuid.uuid4())}",
                                                                                                f"DROP TABLE {table_name};",
@@ -111,6 +115,7 @@ class DropTableWithAssociatedResources():
                     drop_stages[DROP_STAGES["kafka_topic_drop"]] = "Kafka topic dropped."
                     drop_stages[DROP_STAGES["table_drop"]] = "Table dropped."
                 else:
+                    time.sleep(15)
                     retry += 1
                     statement_phase = StatementPhase(item.get("status").get("phase"))
         else:
