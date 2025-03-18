@@ -1,4 +1,4 @@
-# Confluent Cloud for Apache Flink (CCAF) Housekeeping Library for Python
+# Confluent Cloud for Apache Flink (CCAF) Housekeeping Python Library
 The CCAF Housekeeping Python Library is a CI/CD support tool designed to automate the teardown of a Flink table and its associated Kafka resources—such as topics and schemas—along with any long-running statements linked to it. This robust automation guarantees that each deployment and test cycle is executed with exceptional consistency and reliability, paving the way for a dynamic and resilient application infrastructure.
 
 > **Note:** _This library is in active development and is subject to change.  It covers only the methods I have needed so far.  If you need a method that is not covered, please feel free to open an issue or submit a pull request._
